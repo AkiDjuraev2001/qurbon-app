@@ -427,9 +427,11 @@ export default function QurbonApp() {
             <View style={{ paddingHorizontal: 24, paddingBottom: 8 }}>
               <View style={{ backgroundColor: COLORS.paper, borderLeftWidth: 2, borderLeftColor: COLORS.gold, borderRadius: 6, paddingHorizontal: 14, paddingVertical: 12, alignSelf: 'stretch', marginHorizontal: 0 }}>
                 <Text style={{ fontSize: 15, color: COLORS.inkLight, lineHeight: 22 }}>
-                  {lang === "uz"
-                    ? "🐑 Bugungi narx: 1 kg qo'y go'shti — 178 500 so'm. Bu narxga so'yish, bo'lish va ko'rsatilgan manzilga yetkazib berish kiradi."
-                    : "🐑 Сегодняшняя цена: 1 кг баранины — 178 500 сум. В эту сумму входит забой, разделка и доставка до указанного адреса."}
+                  {lang === "uz" ? (
+                    <>{"🐑 Bugungi narx: 1 kg qo'y go'shti — "}<Text style={{ fontWeight: "700", color: COLORS.gold }}>{"178 500 so'm"}</Text>{". Bu narxga so'yish, bo'lish va ko'rsatilgan manzilga yetkazib berish kiradi."}</>
+                  ) : (
+                    <>{"🐑 Сегодняшняя цена: 1 кг баранины — "}<Text style={{ fontWeight: "700", color: COLORS.gold }}>{"178 500 сум"}</Text>{". В эту сумму входит забой, разделка и доставка до указанного адреса."}</>
+                  )}
                 </Text>
               </View>
             </View>
