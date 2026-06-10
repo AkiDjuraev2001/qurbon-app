@@ -273,6 +273,7 @@ export default function QurbonApp() {
   const [specialNote, setSpecialNote] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [showOferta, setShowOferta] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<'cash' | 'card' | ''>('');
   const [order, setOrder] = useState({
     type: null as string | null,
     animal: 'sheep' as string | null,
@@ -293,7 +294,7 @@ export default function QurbonApp() {
     if (step === 1) return !!order.type;
     if (step === 2) return weight >= 20;
     if (step === 3) return selectedPreset !== 'custom' || (customFamily + customRelatives + customNeedy === 100);
-    if (step === 4) return order.name.trim().length > 1 && order.phone.trim().length > 6 && agreedToTerms;
+    if (step === 4) return order.name.trim().length > 1 && order.phone.trim().length > 6 && paymentMethod !== '' && agreedToTerms;
     return true;
   };
 
@@ -306,6 +307,7 @@ export default function QurbonApp() {
     setCustomNeedy(33);
     setSpecialNote('');
     setAgreedToTerms(false);
+    setPaymentMethod('');
     setOrder({ type: null, animal: 'sheep', name: "", phone: "", familyAddress: "", relativesAddress: "" });
   };
 
@@ -337,6 +339,7 @@ export default function QurbonApp() {
       `  👨‍👩‍👧 Oila / Семья: ${order.familyAddress || "—"}\n` +
       `  👥 Qarindoshlar / Родственники: ${order.relativesAddress || "—"}\n` +
       `  🤲 Muhtojlar / Нуждающимся: Mahalla va xayriya jamg'armalari | Махалля и благотворительные фонды\n\n` +
+      `💳 To'lov: ${paymentMethod === 'cash' ? 'Naqd pul' : 'Karta'} | Оплата: ${paymentMethod === 'cash' ? 'Наличные' : 'Карта'}\n` +
       `💰 Jami / Итого: ${formatPrice(total)} so'm\n` +
       `━━━━━━━━━━━━━━━━━━`;
     console.log("Sending to Telegram...");
@@ -662,6 +665,32 @@ export default function QurbonApp() {
                     );
                   })()}
                 </View>
+                <View>
+                  <Text style={[styles.inputLabel, { marginBottom: 10 }]}>
+                    {lang === "uz" ? "To'lov usuli" : "Способ оплаты"}
+                  </Text>
+                  <View style={{ flexDirection: "row", gap: 10 }}>
+                    {([
+                      { id: 'cash' as const, icon: '💵', uz: "Naqd pul", ru: "Наличные" },
+                      { id: 'card' as const, icon: '💳', uz: "Karta",    ru: "Карта"    },
+                    ]).map((opt) => (
+                      <TouchableOpacity
+                        key={opt.id}
+                        onPress={() => setPaymentMethod(opt.id)}
+                        style={[styles.optCard, { flex: 1, alignItems: "center", paddingVertical: 14 }, paymentMethod === opt.id && styles.optCardSel]}
+                      >
+                        <Text style={{ fontSize: 24, marginBottom: 6 }}>{opt.icon}</Text>
+                        <Text style={[styles.optTitle, { fontSize: 15 }]}>{lang === "uz" ? opt.uz : opt.ru}</Text>
+                        {paymentMethod === opt.id && (
+                          <View style={styles.optCheck}>
+                            <Text style={{ fontSize: 14, color: COLORS.gold }}>✓</Text>
+                          </View>
+                        )}
+                      </TouchableOpacity>
+                    ))}
+                  </View>
+                </View>
+
                 <OrderSummary order={order} t={t} animalPrice={animalPrice} total={total} lang={lang} weight={weight} selectedPreset={selectedPreset} customFamily={customFamily} customRelatives={customRelatives} customNeedy={customNeedy} specialNote={specialNote} familyAddress={order.familyAddress} relativesAddress={order.relativesAddress} />
 
                 <TouchableOpacity onPress={() => setAgreedToTerms(!agreedToTerms)} style={{ flexDirection: "row", alignItems: "center", gap: 12, paddingVertical: 4 }}>
