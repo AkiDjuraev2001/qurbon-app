@@ -62,10 +62,9 @@ const TEXT = {
       },
     },
     sacrificeTypes: [
-      { id: "qurbon", t: "Qurbon Hayit", d: "Hayit kunlarida vojib ibodat. Eng keng tarqalgan turi." },
-      { id: "aqiqa", t: "Aqiqa", d: "Yangi tug'ilgan farzand uchun shukrona qurbonligi." },
-      { id: "nazr", t: "Nazr", d: "Allohga bergan va'dangizni bajarish." },
       { id: "sadaqa", t: "Sadaqa", d: "Muhtojlarga yordam berish niyatida." },
+      { id: "aqiqa", t: "Aqiqa", d: "Yangi tug'ilgan farzand uchun shukrona qurbonligi." },
+      { id: "qurbon", t: "Qurbon Hayit", d: "Hayit kunlarida vojib ibodat. Eng keng tarqalgan turi." },
     ],
     animals: [
       { id: "sheep", t: "Qo'y", d: "Bir kishi nomidan", pricePerKg: 178500 },
@@ -125,10 +124,9 @@ const TEXT = {
       },
     },
     sacrificeTypes: [
-      { id: "qurbon", t: "Курбан Хайит", d: "Обязательное жертвоприношение в дни праздника" },
-      { id: "aqiqa", t: "Акика", d: "Жертвоприношение в честь новорождённого ребёнка" },
-      { id: "nazr", t: "Назр (обет)", d: "Исполнение обещания, данного Аллаху" },
       { id: "sadaqa", t: "Садака", d: "С намерением помочь нуждающимся" },
+      { id: "aqiqa", t: "Акика", d: "Жертвоприношение в честь новорождённого ребёнка" },
+      { id: "qurbon", t: "Курбан Хайит", d: "Обязательное жертвоприношение в дни праздника" },
     ],
     animals: [
       { id: "sheep", t: "Баран", d: "От одного человека", pricePerKg: 178500 },
@@ -293,7 +291,7 @@ export default function QurbonApp() {
 
   const canProceed = () => {
     if (step === 1) return !!order.type;
-    if (step === 2) return weight >= 10;
+    if (step === 2) return weight >= 20;
     if (step === 3) return selectedPreset !== 'custom' || (customFamily + customRelatives + customNeedy === 100);
     if (step === 4) return order.name.trim().length > 1 && order.phone.trim().length > 6 && agreedToTerms;
     return true;
@@ -426,6 +424,16 @@ export default function QurbonApp() {
               ))}
             </View>
 
+            <View style={{ paddingHorizontal: 24, paddingBottom: 8 }}>
+              <View style={{ backgroundColor: COLORS.paper, borderLeftWidth: 2, borderLeftColor: COLORS.gold, borderRadius: 6, paddingHorizontal: 14, paddingVertical: 12, alignSelf: 'stretch', marginHorizontal: 0 }}>
+                <Text style={{ fontSize: 15, color: COLORS.inkLight, lineHeight: 22 }}>
+                  {lang === "uz"
+                    ? "🐑 Bugungi narx: 1 kg qo'y go'shti — 178 500 so'm. Bu narxga so'yish, bo'lish va ko'rsatilgan manzilga yetkazib berish kiradi."
+                    : "🐑 Сегодняшняя цена: 1 кг баранины — 178 500 сум. В эту сумму входит забой, разделка и доставка до указанного адреса."}
+                </Text>
+              </View>
+            </View>
+
             <View style={s.trustSection}>
               <Text style={s.trustHeading}>{t.trust.title}</Text>
               {t.trust.items.map((it, i) => (
@@ -443,7 +451,7 @@ export default function QurbonApp() {
               <Text style={s.footerLogo}>
                 Qurbon<Text style={{ color: COLORS.gold }}>.</Text>uz
               </Text>
-              <Text style={s.footerTxt}>© 2026 • Toshkent • +998 71 200 00 00</Text>
+              <Text style={s.footerTxt}>© 2026 • Toshkent • +998 99 008 85 55</Text>
             </View>
           </>
         )}
@@ -493,11 +501,11 @@ export default function QurbonApp() {
                     {lang === "uz" ? "Og'irlikni tanlang (kg)" : "Выберите вес (кг)"}
                   </Text>
                   <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 12 }}>
-                    <TouchableOpacity onPress={() => setWeight(Math.max(10, weight - 5))} style={{ width: 32, height: 32, borderRadius: 16, borderWidth: 1, borderColor: COLORS.line, alignItems: "center", justifyContent: "center" }}>
+                    <TouchableOpacity onPress={() => setWeight(Math.max(20, weight - 5))} style={{ width: 32, height: 32, borderRadius: 16, borderWidth: 1, borderColor: COLORS.line, alignItems: "center", justifyContent: "center" }}>
                       <Text style={{fontSize: 18, color: COLORS.ink, lineHeight: 20}}>−</Text>
                     </TouchableOpacity>
                     <Text style={{ fontSize: 22, fontWeight: "500", minWidth: 54, textAlign: "center", color: COLORS.green }}>{weight} kg</Text>
-                    <TouchableOpacity onPress={() => setWeight(Math.min(60, weight + 5))} style={{ width: 32, height: 32, borderRadius: 16, borderWidth: 1, borderColor: COLORS.line, alignItems: "center", justifyContent: "center" }}>
+                    <TouchableOpacity onPress={() => setWeight(Math.min(150, weight + 5))} style={{ width: 32, height: 32, borderRadius: 16, borderWidth: 1, borderColor: COLORS.line, alignItems: "center", justifyContent: "center" }}>
                       <Text style={{fontSize: 18, color: COLORS.ink, lineHeight: 20}}>+</Text>
                     </TouchableOpacity>
                   </View>
