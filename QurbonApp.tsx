@@ -32,7 +32,7 @@ const TEXT = {
       sub: "Uydan chiqmasdan. Halol sertifikatlangan. Muhtojlarga yetkazilgan.",
       cta: "Buyurtmani boshlash",
       stats: [
-        { n: "4", l: "Qurbonlik turi" },
+        { n: "3", l: "Qurbonlik turi" },
         { n: "100%", l: "Ochiq narx" },
         { n: "24/7", l: "Onlayn buyurtma" },
       ],
@@ -95,7 +95,7 @@ const TEXT = {
       sub: "Не выходя из дома. Халяль сертификат. Доставлено нуждающимся.",
       cta: "Начать заказ",
       stats: [
-        { n: "4", l: "Вида жертвоприношений" },
+        { n: "3", l: "Вида жертвоприношений" },
         { n: "100%", l: "Прозрачная цена" },
         { n: "24/7", l: "Приём заказов онлайн" },
       ],
