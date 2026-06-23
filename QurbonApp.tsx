@@ -77,7 +77,7 @@ const TEXT = {
     trust: {
       title: "Nega bizga ishonish mumkin",
       items: [
-        { t: "Muftiyat tasdig'i", d: "O'zbekiston musulmonlar idorasi nazorati ostida" },
+        { t: "Ochiq oferta", d: "So'yish va vazn shartlari oldindan ochiq ko'rsatilgan" },
         { t: "Halol sertifikat", d: "Har bir so'yishxona — rasmiy sertifikatlangan" },
         { t: "Veterinariya nazorati", d: "Davlat veterinariya qo'mitasi bilan hamkorlik" },
         { t: "Mahalla tarmog'i", d: "Muhtojlarga taqsimlash mahallalar orqali" },
@@ -139,7 +139,7 @@ const TEXT = {
     trust: {
       title: "Почему нам можно доверять",
       items: [
-        { t: "Одобрено Муфтиятом", d: "Под надзором Управления мусульман Узбекистана" },
+        { t: "Прозрачная оферта", d: "Все условия забоя и веса — заранее, в открытом доступе" },
         { t: "Халяль сертификат", d: "Каждый цех — официально сертифицирован" },
         { t: "Ветеринарный контроль", d: "Партнёрство с Госкомитетом ветеринарии" },
         { t: "Сеть махалля", d: "Распределение нуждающимся через махалля" },
