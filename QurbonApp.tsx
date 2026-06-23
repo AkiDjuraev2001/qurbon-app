@@ -32,9 +32,9 @@ const TEXT = {
       sub: "Uydan chiqmasdan. Halol sertifikatlangan. Muhtojlarga yetkazilgan.",
       cta: "Buyurtmani boshlash",
       stats: [
-        { n: "1,247", l: "Bajarilgan qurbonliklar" },
-        { n: "100%", l: "Halol sertifikat" },
-        { n: "23", l: "Hamkor xo'jaliklar" },
+        { n: "4", l: "Qurbonlik turi" },
+        { n: "100%", l: "Ochiq narx" },
+        { n: "24/7", l: "Onlayn buyurtma" },
       ],
     },
     how: {
@@ -78,8 +78,8 @@ const TEXT = {
       title: "Nega bizga ishonish mumkin",
       items: [
         { t: "Ochiq oferta", d: "So'yish va vazn shartlari oldindan ochiq ko'rsatilgan" },
-        { t: "Halol sertifikat", d: "Har bir so'yishxona — rasmiy sertifikatlangan" },
-        { t: "Veterinariya nazorati", d: "Davlat veterinariya qo'mitasi bilan hamkorlik" },
+        { t: "Sog'lom hayvon", d: "Kamchiliksiz, semiz hayvonlarni tanlaymiz" },
+        { t: "Shariat bo'yicha so'yish", d: "Har bir buyurtma uchun niyat belgilanadi" },
         { t: "Mahalla tarmog'i", d: "Muhtojlarga taqsimlash mahallalar orqali" },
       ],
     },
@@ -95,9 +95,9 @@ const TEXT = {
       sub: "Не выходя из дома. Халяль сертификат. Доставлено нуждающимся.",
       cta: "Начать заказ",
       stats: [
-        { n: "1,247", l: "Выполнено курбанов" },
-        { n: "100%", l: "Халяль сертификат" },
-        { n: "23", l: "Хозяйств-партнёров" },
+        { n: "4", l: "Вида жертвоприношений" },
+        { n: "100%", l: "Прозрачная цена" },
+        { n: "24/7", l: "Приём заказов онлайн" },
       ],
     },
     how: {
@@ -140,8 +140,8 @@ const TEXT = {
       title: "Почему нам можно доверять",
       items: [
         { t: "Прозрачная оферта", d: "Все условия забоя и веса — заранее, в открытом доступе" },
-        { t: "Халяль сертификат", d: "Каждый цех — официально сертифицирован" },
-        { t: "Ветеринарный контроль", d: "Партнёрство с Госкомитетом ветеринарии" },
+        { t: "Здоровое животное", d: "Отбираем упитанных животных без изъянов" },
+        { t: "Забой по Шариату", d: "Намерение фиксируется для каждого заказа" },
         { t: "Сеть махалля", d: "Распределение нуждающимся через махалля" },
       ],
     },
