@@ -152,8 +152,6 @@ const TEXT = {
 
 type Lang = keyof typeof TEXT;
 
-const TELEGRAM_TOKEN = "8928692621:AAFLh9zDRTg8jkMDbvfMgdKO7FtSQQAAJ2w";
-const TELEGRAM_CHAT_ID = "53533360";
 
 const PRESETS = [
   { id: 'sunnah',     icon: '📖',       uz: "Sunna bo'yicha",        ru: "По Сунне",              subUz: "1/3 oila • 1/3 qarindosh • 1/3 muhtoj",   subRu: "1/3 семье • 1/3 родственникам • 1/3 нуждающимся", badge: true  },
@@ -345,10 +343,10 @@ export default function QurbonApp() {
     console.log("Sending to Telegram...");
     (async () => {
       try {
-        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+        const response = await fetch('/.netlify/functions/send-order', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: msg }),
+          body: JSON.stringify({ message: msg }),
         });
         const data = await response.json();
         console.log("Telegram response:", response.status, data);
